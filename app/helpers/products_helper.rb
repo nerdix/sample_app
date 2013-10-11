@@ -4,7 +4,7 @@ module ProductsHelper
 		xml.product do
 			xml.aid product.id
 			xml.name product.title
-			xml.desc raw(product.description)
+			xml.desc ActionView::Base.full_sanitizer.sanitize(product.description)
 			xml.price product.price
 			xml.link product.url
 			xml.brand product.vendor
